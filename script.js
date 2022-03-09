@@ -7,47 +7,34 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  function getRandomLower() {
+      return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+  }
+
+  function getRandomUpper() {
+      return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+  }
+
+  function getRandomNumber() {
+      return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+  }
+
+  function getRandomSymbol() {
+      const symbols = "!@#$%^&*()_+-={}[]|;:<>,./?"; // 27 Symbols (0-26)
+      return symbols[Math.floor(Math.random() * symbols.length)];
+  }
 
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", () => {
+  const length = +lengthBtn.value;
+  const hasLower = lowercaseBtn.checked;
+  const hasUpper = uppercaseBtn.checked;
+  const hasNumber = numbersBtn.checked;
+  const hasSymbol = symbolsBtn.checked;
 
-// *~*~*~*~*~*~*~*~*~*~*~*~*~* \\
-
-// Dom Elements
-const resultEl = document.getElementById('result')
-const lengthEl = document.getElementById('length')
-const uppercaseEl = document.getElementById('uppercase')
-const lowercaseEl = document.getElementById('lowercase')
-const numbersEl = document.getElementById('numbers')
-const symbolsEl = document.getElementById('symbol')
-const generateEl = document.getElementById('generate')
-
-const randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol
-}
-
-function getRandomLower() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-}
-
-function getRandomUpper() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-}
-
-function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-}
-
-function getRandomSymbol() {
-  const symbols = "!@#$%^&*()_+-={}[]|;:<>,./?"; // 27 Symbols (0-26)
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
-
-console.log(getRandomSymbol());
+  resultBtn.innerText = writePassword(hasLower, hasNumber, hasSymbol, hasUpper, length);
+});
