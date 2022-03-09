@@ -2,7 +2,7 @@
 
 ## Description
 
-This is my portfolio! It is a work in progress, as I will be adding to it as my skills grow over the course of this class. Within the portfolio, you will find a short About Me section, samples of my previous work, and links to the best modes to contact me.
+
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,7 +15,7 @@ In order to install this project, you will need to havev already installed Visua
 
 ## Credits
 
-This code was made from scratch by me, with references to inclass assignment material provided by the University of Washington continuing education program's full stack part-time course, instructor John Young.
+
 
 ## License
 
@@ -42,7 +42,7 @@ SOFTWARE.
 
 ## Link to deployed project
 
-(https://emilyhoodenpyle.github.io/portfolio/)
+(https://emilyhoodenpyle.github.io/password-generator/)
 
 ## Image of finished webpage
-![img](./assets/images/finishedDesignScreenshot.png)
+![img](./assets/images/)
