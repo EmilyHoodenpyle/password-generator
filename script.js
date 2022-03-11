@@ -18,38 +18,109 @@ generateBtn.addEventListener("click", writePassword)
 
 // create buckets for each character type (variable type: array, strings)
 //UPPERCASE LETTERS
-const Upper = "A"+"B"+"C"+"D"+"E"+"F"+"G"+"H"+"I"+"J"+"K"+"L"+"M"+"N"+"O"+"P"+"Q"+"R"+"S"+"T"+"U"+"V"+"W"+"X"+"Y"+"Z";
+const Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 function getRandomUpper() {
     return Upper[Math.floor(Math.random() * Upper.length)];
   }
 console.log(getRandomUpper())
 
 // LOWERCASE LETTERS
-const Lower = "a"+"b"+"c"+"d"+"e"+"f"+"g"+"h"+"i"+"j"+"k"+"l"+"m"+"n"+"o"+"p"+"q"+"r"+"s"+"t"+"u"+"v"+"w"+"x"+"y"+"z";
+const Lower = "abcdefghijklmnopqrstuvwxyz";
 function getRandomLower() {
   return Lower[Math.floor(Math.random() * Lower.length)];
 }
 console.log(getRandomLower())
 
 // NUMBERS
-const Digit = "1"+"2"+"3"+"4"+"5"+"6"+"7"+"8"+"9"+"0";
+const Digit = "1234567890";
 function getRandomDigit() {
   return Digit[Math.floor(Math.random() * Digit.length)];
 }
 console.log(getRandomDigit())
 
 // SYMBOLS
-const Symbol = "!"+"#"+"$"+"%"+"&"+"("+")"+"*"+"+"+","+"-"+"."+"/"+":"+";"+"<"+"="+">"+"?"+"@"+"["+"]"+"^"+"_"+"{"+"}"+"|"+"~"
+const Symbol = "!#$%&()*+,-./:;<=>?@[]^_{}|~"
 function getRandomSymbol() {
   return Symbol[Math.floor(Math.random() * Symbol.length)];
 }
 console.log(getRandomSymbol())
 
-const randomAll = ""
+// GET ALL
+const randomAll = Upper.concat(Lower, Symbol, Digit)
 function getRandomAll() {
   return randomAll[Math.floor(Math.random() * randomAll.length)];
 }
 console.log(getRandomAll())
+
+// SYMBOLS + DIGITS + LOWER
+const randomSDL = Symbol.concat(Lower, Digit)
+function getRandomSDL() {
+  return randomSDL[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSDL())
+
+// SYMBOLS + DIGITS + UPPPER
+const randomSDU = Symbol.concat(Upper, Digit)
+function getRandomSDU() {
+  return randomSDU[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSDU())
+
+// SYMBOLS + UPPER + LOWER
+const randomSUL = Symbol.concat(Upper, Lower)
+function getRandomSUL() {
+  return randomSUL[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSUL())
+
+// UPPER + LOWER + DIGIT
+const randomULD = Upper.concat(Digit, Lower)
+function getRandomULD() {
+  return randomULD[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomULD())
+
+// SYMBOLS + UPPER
+const randomSU = Symbol.concat(Upper)
+function getRandomSU() {
+  return randomSU[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSU())
+
+// SYMBOLS + LOWER
+const randomSL = Symbol.concat(Lower)
+function getRandomSL() {
+  return randomSL[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSL())
+
+// UPPER + LOWER
+const randomUL = Upper.concat(Lower)
+function getRandomUL() {
+  return randomUL[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomUL())
+
+// SYMBOLS + DIGIT
+const randomSD = Symbol.concat(Digit)
+function getRandomSD() {
+  return randomSD[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomSD())
+
+// UPPER + DIGIT
+const randomUD = Upper.concat(Digit)
+function getRandomUD() {
+  return randomUD[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomUD())
+
+// LOWER + DIGIT
+const randomLD = Lower.concat(Digit)
+function getRandomLD() {
+  return randomLD[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomLD())
 
 function generatePassword() {
   // 1. get user preferences
