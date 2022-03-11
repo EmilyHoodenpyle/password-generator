@@ -14,34 +14,32 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
 
+// ^^^ DO NOT TOUCH ABOVE ^^^ \\
+
 // create buckets for each character type (variable type: array, strings)
 //UPPERCASE LETTERS
-const Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+let Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 function getRandomUpper() {
     return Upper[Math.floor(Math.random() * Upper.length)];
   }
 console.log(getRandomUpper())
 
 // LOWERCASE LETTERS
-const Lower = "abcdefghijklmnopqrstuvwxyz";
-
+let Lower = "abcdefghijklmnopqrstuvwxyz";
 function getRandomLower() {
   return Lower[Math.floor(Math.random() * Lower.length)];
 }
 console.log(getRandomLower())
 
 // NUMBERS
-const Digit = "1234567890";
-
+let Digit = "1234567890";
 function getRandomDigit() {
   return Digit[Math.floor(Math.random() * Digit.length)];
 }
 console.log(getRandomDigit())
 
 // SYMBOLS
-const Symbol = "!#$%&()*+,-./:;<=>?@[]^_{}|~"
-
+let Symbol = "!#$%&()*+,-./:;<=>?@[]^_{}|~"
 function getRandomSymbol() {
   return Symbol[Math.floor(Math.random() * Symbol.length)];
 }
@@ -49,12 +47,17 @@ console.log(getRandomSymbol())
 
 function generatePassword() {
   // 1. get user preferences
-  var passwordLength = prompt("Please enter password length")
+  // 2. identify and collect buckets user has chosen
+  // 3. create guaranteed collection (array)
+  // 4. create a password variable // an array
+  // 5. Randomly draw a character
+  // 6. put that character on the password variable (?)
+  // 7. repeat as many times as specified  (for loop)
+  // 8. loop through the garanteed elements, replace elements in password array (math.floor(math.random))
+  // 9. join characters in the password array into a string
+  // 10. return the password string
 
-  if (!digit) {
-    return;
-  } 
-  } 
+  var passwordLength = prompt("Please enter password length")
 
   var passwordUpper = confirm("Would you like to use uppercase letters in your password?");
 
@@ -64,24 +67,29 @@ function generatePassword() {
 
   var passwordSymbol = confirm("Would you like to use symbols in your password?");
 
-  // 2. identify and collect buckets user has chosen
-  const randomAll = (
-    getRandomLower,
-    getRandomUpper,
-    getRandomDigit,
-    getRandomSymbol
-    )
-    var password = Math.floor(Math.random() * options.length);
-    var computerChoice = options[index];
-  // 3. create guaranteed collection (array)
-  // 4. create a password variable // an array
-  // 5. Randomly draw a character
-  // 6. put that character on the password variable (?)
-  // 7. repeat as many times as specified  (for loop)
-  // 8. loop through the garanteed elements, replace elements in password array (math.floor(math.random))
-  // 9. join characters in the password array into a string
-  // 10. return the password string
+const randomAll = [
+  getRandomDigit,
+  getRandomLower,
+  getRandomSymbol,
+  getRandomUpper
+]
+function getRandomAll() {
+  return randomAll[Math.floor(Math.random() * randomAll.length)];
 }
+console.log(getRandomAll())
+
+    if (!passwordLength) {
+      return;
+    }
+    
+    if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
+      for(var i = 0; i <= generateBtn; i++){
+        password = password + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
+      } 
+    }
+
+}
+
 
 // ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~ \\
 
