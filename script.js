@@ -18,36 +18,34 @@ generateBtn.addEventListener("click", writePassword)
 
 // create buckets for each character type (variable type: array, strings)
 //UPPERCASE LETTERS
-let Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const Upper = "A"+"B"+"C"+"D"+"E"+"F"+"G"+"H"+"I"+"J"+"K"+"L"+"M"+"N"+"O"+"P"+"Q"+"R"+"S"+"T"+"U"+"V"+"W"+"X"+"Y"+"Z";
 function getRandomUpper() {
     return Upper[Math.floor(Math.random() * Upper.length)];
   }
 console.log(getRandomUpper())
 
 // LOWERCASE LETTERS
-let Lower = "abcdefghijklmnopqrstuvwxyz";
+const Lower = "a"+"b"+"c"+"d"+"e"+"f"+"g"+"h"+"i"+"j"+"k"+"l"+"m"+"n"+"o"+"p"+"q"+"r"+"s"+"t"+"u"+"v"+"w"+"x"+"y"+"z";
 function getRandomLower() {
   return Lower[Math.floor(Math.random() * Lower.length)];
 }
 console.log(getRandomLower())
 
 // NUMBERS
-let Digit = "1234567890";
+const Digit = "1"+"2"+"3"+"4"+"5"+"6"+"7"+"8"+"9"+"0";
 function getRandomDigit() {
   return Digit[Math.floor(Math.random() * Digit.length)];
 }
 console.log(getRandomDigit())
 
 // SYMBOLS
-let Symbol = "!#$%&()*+,-./:;<=>?@[]^_{}|~"
+const Symbol = "!"+"#"+"$"+"%"+"&"+"("+")"+"*"+"+"+","+"-"+"."+"/"+":"+";"+"<"+"="+">"+"?"+"@"+"["+"]"+"^"+"_"+"{"+"}"+"|"+"~"
 function getRandomSymbol() {
   return Symbol[Math.floor(Math.random() * Symbol.length)];
 }
 console.log(getRandomSymbol())
 
-const randomAll = [
-  ""
-]
+const randomAll = ""
 function getRandomAll() {
   return randomAll[Math.floor(Math.random() * randomAll.length)];
 }
@@ -66,48 +64,45 @@ function generatePassword() {
   // 10. return the password string
 
   var passwordLength = prompt("Please enter password length")
-  if (passwordLength < 8 && passwordLength > 128) {
+  if (passwordLength < 8 || passwordLength > 128) {
     alert("please enter valid password length");
-  }
-
-  var passwordUpper = confirm("Would you like to use uppercase letters in your password?");
-  if (passwordUpper === true){
-    randomAll.push(getRandomUpper())
+    return;
   } else {
+      
+    var passwordUpper = confirm("Would you like to use uppercase letters in your password?");
+      if (passwordUpper === true){
+      randomAll.concat(Upper)
+    } else {
     console.log(getRandomAll())
   }
 
-  var passwordLower = confirm("Would you like to use lowercase letters in your password?");
-  if (passwordLower === true){
-    randomAll.push(getRandomLower())
-  } else {
+    var passwordLower = confirm("Would you like to use lowercase letters in your password?");
+      if (passwordLower === true){
+     randomAll.concat(Lower)
+    } else {
     console.log(getRandomAll())
-  }
-
-  var passwordDigit = confirm("Would you like to use numbers in your password?");
-  if (passwordDigit === true){
-    randomAll.push(getRandomDigit())
-  } else {
+    }
+    var passwordDigit = confirm("Would you like to use numbers in your password?");
+      if (passwordDigit === true){
+      randomAll.concat(Digit)
+    } else {
     console.log(getRandomAll())
-  }
+    }
 
-  var passwordSymbol = confirm("Would you like to use symbols in your password?");
-  if (passwordSymbol === true){
-    randomAll.push(getRandomSymbol())
-  } else {
+    var passwordSymbol = confirm("Would you like to use symbols in your password?");
+      if (passwordSymbol === true){
+      randomAll.concat(Symbol)
+    } else {
     console.log(getRandomAll())
-  }
-
-    if (!passwordLength) {
-      return;
     }
     
     if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= generatePassword; i++){
-        password = password + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
+      for(var i = 0; i <= passwordLength; i++){
+        writePassword = writePassword + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
       }
     }
     console.log(getRandomAll())
+  }
 
 }
 
