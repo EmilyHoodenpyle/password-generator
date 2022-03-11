@@ -45,6 +45,14 @@ function getRandomSymbol() {
 }
 console.log(getRandomSymbol())
 
+const randomAll = [
+  ""
+]
+function getRandomAll() {
+  return randomAll[Math.floor(Math.random() * randomAll.length)];
+}
+console.log(getRandomAll())
+
 function generatePassword() {
   // 1. get user preferences
   // 2. identify and collect buckets user has chosen
@@ -58,35 +66,48 @@ function generatePassword() {
   // 10. return the password string
 
   var passwordLength = prompt("Please enter password length")
+  if (passwordLength < 8 && passwordLength > 128) {
+    alert("please enter valid password length");
+  }
 
   var passwordUpper = confirm("Would you like to use uppercase letters in your password?");
+  if (passwordUpper === true){
+    randomAll.push(getRandomUpper())
+  } else {
+    console.log(getRandomAll())
+  }
 
   var passwordLower = confirm("Would you like to use lowercase letters in your password?");
+  if (passwordLower === true){
+    randomAll.push(getRandomLower())
+  } else {
+    console.log(getRandomAll())
+  }
 
   var passwordDigit = confirm("Would you like to use numbers in your password?");
+  if (passwordDigit === true){
+    randomAll.push(getRandomDigit())
+  } else {
+    console.log(getRandomAll())
+  }
 
   var passwordSymbol = confirm("Would you like to use symbols in your password?");
-
-const randomAll = [
-  getRandomDigit,
-  getRandomLower,
-  getRandomSymbol,
-  getRandomUpper
-]
-function getRandomAll() {
-  return randomAll[Math.floor(Math.random() * randomAll.length)];
-}
-console.log(getRandomAll())
+  if (passwordSymbol === true){
+    randomAll.push(getRandomSymbol())
+  } else {
+    console.log(getRandomAll())
+  }
 
     if (!passwordLength) {
       return;
     }
     
     if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= generateBtn; i++){
+      for(var i = 0; i <= generatePassword; i++){
         password = password + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
-      } 
+      }
     }
+    console.log(getRandomAll())
 
 }
 
