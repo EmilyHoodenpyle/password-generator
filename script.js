@@ -150,9 +150,14 @@ function generatePassword() {
     
     // ALL
     if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
+      for (let i = 0; i < passwordLength; i += randomAll) {
+        getRandomAll(type => {
+          const funcName = Object.keys(type)[0]
+
+          password += getRandomAll[funcName]();
+        });
       }
+      console.log(generatePassword())
     }
     // console.log(getRandomAll())
 
