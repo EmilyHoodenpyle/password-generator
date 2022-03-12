@@ -22,105 +22,90 @@ const Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 function getRandomUpper() {
     return Upper[Math.floor(Math.random() * Upper.length)];
   }
-// console.log(getRandomUpper())
 
 // LOWERCASE LETTERS
 const Lower = "abcdefghijklmnopqrstuvwxyz";
 function getRandomLower() {
   return Lower[Math.floor(Math.random() * Lower.length)];
 }
-// console.log(getRandomLower())
 
 // NUMBERS
 const Digit = "1234567890";
 function getRandomDigit() {
   return Digit[Math.floor(Math.random() * Digit.length)];
 }
-// console.log(getRandomDigit())
 
 // SYMBOLS
 const Symbol = "!#$%&()*+,-./:;<=>?@[]^_{}|~"
 function getRandomSymbol() {
   return Symbol[Math.floor(Math.random() * Symbol.length)];
 }
-// console.log(getRandomSymbol())
 
 // GET ALL
 const randomAll = Upper.concat(Lower, Symbol, Digit)
 function getRandomAll() {
   return randomAll[Math.floor(Math.random() * randomAll.length -1)];
 }
-// console.log(getRandomAll())
 
 // SYMBOLS + DIGITS + LOWER
 const randomSDL = Symbol.concat(Lower, Digit)
 function getRandomSDL() {
   return randomSDL[Math.floor(Math.random() * randomSDL.length - 1)];
 }
-console.log(getRandomSDL())
 
 // SYMBOLS + DIGITS + UPPPER
 const randomSDU = Symbol.concat(Upper, Digit)
 function getRandomSDU() {
   return randomSDU[Math.floor(Math.random() * randomSDU.length -1)];
 }
-console.log(getRandomSDU())
 
 // SYMBOLS + UPPER + LOWER
 const randomSUL = Symbol.concat(Upper, Lower)
 function getRandomSUL() {
-  return randomSUL[Math.floor(Math.random() * randomAll.length)];
+  return randomSUL[Math.floor(Math.random() * randomSUL.length -1)];
 }
-// console.log(getRandomSUL())
 
 // UPPER + LOWER + DIGIT
 const randomULD = Upper.concat(Digit, Lower)
 function getRandomULD() {
-  return randomULD[Math.floor(Math.random() * randomAll.length)];
+  return randomULD[Math.floor(Math.random() * randomULD.length -1)];
 }
-// console.log(getRandomULD())
 
 // SYMBOLS + UPPER
 const randomSU = Symbol.concat(Upper)
 function getRandomSU() {
-  return randomSU[Math.floor(Math.random() * randomAll.length)];
+  return randomSU[Math.floor(Math.random() * randomSU.length -1)];
 }
-// console.log(getRandomSU())
 
 // SYMBOLS + LOWER
 const randomSL = Symbol.concat(Lower)
 function getRandomSL() {
-  return randomSL[Math.floor(Math.random() * randomAll.length)];
+  return randomSL[Math.floor(Math.random() * randomSL.length -1)];
 }
-// console.log(getRandomSL())
 
 // UPPER + LOWER
 const randomUL = Upper.concat(Lower)
 function getRandomUL() {
-  return randomUL[Math.floor(Math.random() * randomAll.length)];
+  return randomUL[Math.floor(Math.random() * randomUL.length -1)];
 }
-// console.log(getRandomUL())
 
 // SYMBOLS + DIGIT
 const randomSD = Symbol.concat(Digit)
 function getRandomSD() {
-  return randomSD[Math.floor(Math.random() * randomAll.length)];
+  return randomSD[Math.floor(Math.random() * randomSD.length -1)];
 }
-// console.log(getRandomSD())
 
 // UPPER + DIGIT
 const randomUD = Upper.concat(Digit)
 function getRandomUD() {
-  return randomUD[Math.floor(Math.random() * randomAll.length)];
+  return randomUD[Math.floor(Math.random() * randomUD.length -1)];
 }
-// console.log(getRandomUD())
 
 // LOWER + DIGIT
 const randomLD = Lower.concat(Digit)
 function getRandomLD() {
-  return randomLD[Math.floor(Math.random() * randomAll.length)];
+  return randomLD[Math.floor(Math.random() * randomLD.length -1)];
 }
-// console.log(getRandomLD())
 
 function generatePassword() {
   // 1. get user preferences
@@ -159,161 +144,126 @@ function generatePassword() {
 
     //UPPERCASE LETTERS
     if (passwordUpper === true && passwordLower === false && passwordDigit === false && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + Upper.charAt(Math.floor(Math.random) * Math.floor(Upper));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomUpper();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomUpper())
 
     // LOWERCASE LETTERS
     if (passwordUpper === false && passwordLower === true && passwordDigit === false && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + Lower.charAt(Math.floor(Math.random) * Math.floor(Lower));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomLower();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomLower())
     
     // NUMBERS
     if (passwordUpper === false && passwordLower === false && passwordDigit === true && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomAll.charAt(Math.floor(Math.random) * Math.floor(randomAll));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomDigit();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS
     if (passwordUpper === false && passwordLower === false && passwordDigit === false && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + Symbol.charAt(Math.floor(Math.random) * Math.floor(Symbol));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSymbol();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + DIGITS + LOWER
     if (passwordUpper === false && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSDL.charAt(Math.floor(Math.random) * Math.floor(randomSDL));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSDL();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + DIGITS + UPPPER 
     if (passwordUpper === true && passwordLower === false && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSDU.charAt(Math.floor(Math.random) * Math.floor(randomSDU));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSDU();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + UPPER + LOWER
     if (passwordUpper === true && passwordLower === true && passwordDigit === false && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSUL.charAt(Math.floor(Math.random) * Math.floor(randomSUL));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSUL();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // UPPER + LOWER + DIGIT
     if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomULD.charAt(Math.floor(Math.random) * Math.floor(randomULD));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomULD();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + UPPER
     if (passwordUpper === true && passwordLower === false && passwordDigit === false && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSU.charAt(Math.floor(Math.random) * Math.floor(randomSU));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSU();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + LOWER
     if (passwordUpper === false && passwordLower === true && passwordDigit === false && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSL.charAt(Math.floor(Math.random) * Math.floor(randomSL));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSL();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // UPPER + LOWER
     if (passwordUpper === true && passwordLower === true && passwordDigit === false && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomUL.charAt(Math.floor(Math.random) * Math.floor(randomUL));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomUL();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
     
     // SYMBOLS + DIGIT
     if (passwordUpper === false && passwordLower === false && passwordDigit === true && passwordSymbol === true) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomSD.charAt(Math.floor(Math.random) * Math.floor(randomSD));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomSD();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
     // console.log(getRandomAll())
 
     // UPPER + DIGIT
     if (passwordUpper === true && passwordLower === false && passwordDigit === true && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomUD.charAt(Math.floor(Math.random) * Math.floor(randomUD));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomUD();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
-    // console.log(getRandomUD())
 
     // LOWER + DIGIT
     if (passwordUpper === false && passwordLower === true && passwordDigit === true && passwordSymbol === false) {
-      for(var i = 0; i <= passwordLength; i++){
-        writePassword = writePassword + randomLD.charAt(Math.floor(Math.random) * Math.floor(randomLD));
-      }
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomLD();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
-    // console.log(getRandomLD())
 
 }
-
-
-// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~ \\
-
-// function getRandomLower() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
-// }
-
-// function getRandomUpper() {
-//   return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-// }
-
-// function getRandomNumber() {
-//   return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
-// }
-
-// function getRandomSymbol() {
-//   const symbols = "!@#$%^&*()_+-={}[]|;:<>,./?"; // 27 Symbols (0-26)
-//   return symbols[Math.floor(Math.random() * symbols.length)];
-// }
-
-// { () => {
-//   const length = +lengthBtn.value;
-//   const hasLower = lowercaseBtn.checked;
-//   const hasUpper = uppercaseBtn.checked;
-//   const hasNumber = numbersBtn.checked;
-//   const hasSymbol = symbolsBtn.checked;
-
-//   resultBtn.innerText = writePassword(hasLower, hasNumber, hasSymbol, hasUpper, length);
-// });
-
-// var passwordLength = prompt("Enter password length (8-20)")
-
-// if (passwordLength< 8 && passwordLength> 20) {
-//   alert("please enter valid password length");
-// } else {
-//   var uppercase = confirm("Would you like to use uppercase letters?")
-
-//   if (uppercase === true) {
-//     function getRandomUpper() {
-//       return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
-//   }
-//   } else {
-
-//   }
-
-// }
