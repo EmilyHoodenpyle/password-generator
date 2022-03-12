@@ -48,23 +48,23 @@ function getRandomSymbol() {
 // GET ALL
 const randomAll = Upper.concat(Lower, Symbol, Digit)
 function getRandomAll() {
-  return randomAll[Math.floor(Math.random() * randomAll.length)];
+  return randomAll[Math.floor(Math.random() * randomAll.length -1)];
 }
 // console.log(getRandomAll())
 
 // SYMBOLS + DIGITS + LOWER
 const randomSDL = Symbol.concat(Lower, Digit)
 function getRandomSDL() {
-  return randomSDL[Math.floor(Math.random() * randomAll.length)];
+  return randomSDL[Math.floor(Math.random() * randomSDL.length - 1)];
 }
-// console.log(getRandomSDL())
+console.log(getRandomSDL())
 
 // SYMBOLS + DIGITS + UPPPER
 const randomSDU = Symbol.concat(Upper, Digit)
 function getRandomSDU() {
-  return randomSDU[Math.floor(Math.random() * randomAll.length)];
+  return randomSDU[Math.floor(Math.random() * randomSDU.length -1)];
 }
-// console.log(getRandomSDU())
+console.log(getRandomSDU())
 
 // SYMBOLS + UPPER + LOWER
 const randomSUL = Symbol.concat(Upper, Lower)
@@ -148,18 +148,14 @@ function generatePassword() {
 
     var passwordSymbol = confirm("Would you like to use symbols in your password?");
     
+   var passwordArray = []
     // ALL
     if (passwordUpper === true && passwordLower === true && passwordDigit === true && passwordSymbol === true) {
-      for (let i = 0; i < passwordLength; i += randomAll) {
-        getRandomAll(type => {
-          const funcName = Object.keys(type)[0]
-
-          password += getRandomAll[funcName]();
-        });
-      }
-      console.log(generatePassword())
+      for (let i = 0; i < passwordLength; i++) { 
+        var passwordCharacter = getRandomAll();
+        passwordArray.push(passwordCharacter);
+      } return passwordArray.join("")
     }
-    // console.log(getRandomAll())
 
     //UPPERCASE LETTERS
     if (passwordUpper === true && passwordLower === false && passwordDigit === false && passwordSymbol === false) {
