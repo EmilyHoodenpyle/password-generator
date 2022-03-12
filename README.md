@@ -2,7 +2,7 @@
 
 ## Description
 
-
+This project is a random password generator. Using JavaScript, I created arrays of uppercase and lowercass letters, numbers, and special symbols, which were then jumbled together to create a randomized password. The user can decide the length of the password, as well as which arrays are used within.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -11,11 +11,11 @@
 
 ## Installation
 
-In order to install this project, you will need to havev already installed Visual Studio Code (or some other code editing software with HTML and CSS capabilities). From there it is just a matter of cloning the SSH key to your desktop and openning the files in your editing software.
+In order to install this project, you will need to havev already installed Visual Studio Code (or some other code editing software with HTML, CSS, and JavaScript capabilities). From there it is just a matter of cloning the SSH key to your desktop and openning the files in your editing software.
 
 ## Credits
 
-
+Base HTML and CSS, as well as partial JavaScript, code made by John Young for University of Washington's continuing education coding program. Consulted "JavaScript Password Generator" by Traversy Media (https://youtu.be/duNmhKgtcsI) and Foolish Developer's "Random Password Generator using JavaScript" (https://dev.to/code_mystery/random-password-generator-using-javascript-6a).
 
 ## License
 
