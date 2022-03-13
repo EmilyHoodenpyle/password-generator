@@ -119,7 +119,7 @@ function generatePassword() {
   // 9. join characters in the password array into a string
   // 10. return the password string
 
-  var passwordLength = prompt("Please enter password length")
+  var passwordLength = prompt("Please enter password length, between 8 and 128")
   if (passwordLength < 8 || passwordLength > 128) {
     alert("please enter valid password length");
     return;
